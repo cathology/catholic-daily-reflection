@@ -1,0 +1,24 @@
+{
+  "name": "Catholic Daily Reflection",
+  "short_name": "Reflection",
+  "description": "Daily Catholic reflection with Bible verse, saint quote, and contemplative question",
+  "start_url": "/catholic-daily-reflection/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/catholic-daily-reflection/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/catholic-daily-reflection/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
