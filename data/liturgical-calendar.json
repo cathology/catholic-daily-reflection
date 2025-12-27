@@ -1,0 +1,378 @@
+{
+  "fixed": {
+    "01-01": {
+      "name": "Solemnity of Mary, Mother of God",
+      "rank": "solemnity",
+      "color": "white"
+    },
+    "01-06": {
+      "name": "Epiphany of the Lord",
+      "rank": "solemnity",
+      "color": "white"
+    },
+    "01-25": {
+      "name": "Conversion of St. Paul",
+      "rank": "feast",
+      "color": "white"
+    },
+    "02-02": {
+      "name": "Presentation of the Lord",
+      "rank": "feast",
+      "color": "white"
+    },
+    "02-22": {
+      "name": "Chair of St. Peter",
+      "rank": "feast",
+      "color": "white"
+    },
+    "03-19": {
+      "name": "Solemnity of St. Joseph, Spouse of the Blessed Virgin Mary",
+      "rank": "solemnity",
+      "color": "white"
+    },
+    "03-25": {
+      "name": "Annunciation of the Lord",
+      "rank": "solemnity",
+      "color": "white"
+    },
+    "04-25": {
+      "name": "St. Mark, Evangelist",
+      "rank": "feast",
+      "color": "red"
+    },
+    "05-01": {
+      "name": "St. Joseph the Worker",
+      "rank": "optional",
+      "color": "white"
+    },
+    "05-03": {
+      "name": "Sts. Philip and James, Apostles",
+      "rank": "feast",
+      "color": "red"
+    },
+    "05-14": {
+      "name": "St. Matthias, Apostle",
+      "rank": "feast",
+      "color": "red"
+    },
+    "05-31": {
+      "name": "Visitation of the Blessed Virgin Mary",
+      "rank": "feast",
+      "color": "white"
+    },
+    "06-11": {
+      "name": "St. Barnabas, Apostle",
+      "rank": "memorial",
+      "color": "red"
+    },
+    "06-24": {
+      "name": "Nativity of St. John the Baptist",
+      "rank": "solemnity",
+      "color": "white"
+    },
+    "06-29": {
+      "name": "Sts. Peter and Paul, Apostles",
+      "rank": "solemnity",
+      "color": "red"
+    },
+    "07-03": {
+      "name": "St. Thomas, Apostle",
+      "rank": "feast",
+      "color": "red"
+    },
+    "07-22": {
+      "name": "St. Mary Magdalene",
+      "rank": "feast",
+      "color": "white"
+    },
+    "07-25": {
+      "name": "St. James, Apostle",
+      "rank": "feast",
+      "color": "red"
+    },
+    "07-26": {
+      "name": "Sts. Joachim and Anne, Parents of the Blessed Virgin Mary",
+      "rank": "memorial",
+      "color": "white"
+    },
+    "08-06": {
+      "name": "Transfiguration of the Lord",
+      "rank": "feast",
+      "color": "white"
+    },
+    "08-10": {
+      "name": "St. Lawrence, Deacon and Martyr",
+      "rank": "feast",
+      "color": "red"
+    },
+    "08-15": {
+      "name": "Assumption of the Blessed Virgin Mary",
+      "rank": "solemnity",
+      "color": "white"
+    },
+    "08-24": {
+      "name": "St. Bartholomew, Apostle",
+      "rank": "feast",
+      "color": "red"
+    },
+    "08-27": {
+      "name": "St. Monica",
+      "rank": "memorial",
+      "color": "white"
+    },
+    "08-28": {
+      "name": "St. Augustine, Bishop and Doctor of the Church",
+      "rank": "memorial",
+      "color": "white"
+    },
+    "08-29": {
+      "name": "Passion of St. John the Baptist",
+      "rank": "memorial",
+      "color": "red"
+    },
+    "09-08": {
+      "name": "Nativity of the Blessed Virgin Mary",
+      "rank": "feast",
+      "color": "white"
+    },
+    "09-14": {
+      "name": "Exaltation of the Holy Cross",
+      "rank": "feast",
+      "color": "red"
+    },
+    "09-15": {
+      "name": "Our Lady of Sorrows",
+      "rank": "memorial",
+      "color": "white"
+    },
+    "09-21": {
+      "name": "St. Matthew, Apostle and Evangelist",
+      "rank": "feast",
+      "color": "red"
+    },
+    "09-29": {
+      "name": "Sts. Michael, Gabriel and Raphael, Archangels",
+      "rank": "feast",
+      "color": "white"
+    },
+    "09-30": {
+      "name": "St. Jerome, Priest and Doctor of the Church",
+      "rank": "memorial",
+      "color": "white"
+    },
+    "10-01": {
+      "name": "St. Thérèse of the Child Jesus, Virgin and Doctor of the Church",
+      "rank": "memorial",
+      "color": "white"
+    },
+    "10-02": {
+      "name": "Holy Guardian Angels",
+      "rank": "memorial",
+      "color": "white"
+    },
+    "10-04": {
+      "name": "St. Francis of Assisi",
+      "rank": "memorial",
+      "color": "white"
+    },
+    "10-07": {
+      "name": "Our Lady of the Rosary",
+      "rank": "memorial",
+      "color": "white"
+    },
+    "10-15": {
+      "name": "St. Teresa of Jesus, Virgin and Doctor of the Church",
+      "rank": "memorial",
+      "color": "white"
+    },
+    "10-18": {
+      "name": "St. Luke, Evangelist",
+      "rank": "feast",
+      "color": "red"
+    },
+    "10-28": {
+      "name": "Sts. Simon and Jude, Apostles",
+      "rank": "feast",
+      "color": "red"
+    },
+    "11-01": {
+      "name": "All Saints",
+      "rank": "solemnity",
+      "color": "white"
+    },
+    "11-02": {
+      "name": "All Souls' Day",
+      "rank": "commemoration",
+      "color": "violet"
+    },
+    "11-09": {
+      "name": "Dedication of the Lateran Basilica",
+      "rank": "feast",
+      "color": "white"
+    },
+    "11-21": {
+      "name": "Presentation of the Blessed Virgin Mary",
+      "rank": "memorial",
+      "color": "white"
+    },
+    "11-30": {
+      "name": "St. Andrew, Apostle",
+      "rank": "feast",
+      "color": "red"
+    },
+    "12-03": {
+      "name": "St. Francis Xavier, Priest",
+      "rank": "memorial",
+      "color": "white"
+    },
+    "12-08": {
+      "name": "Immaculate Conception of the Blessed Virgin Mary",
+      "rank": "solemnity",
+      "color": "white"
+    },
+    "12-12": {
+      "name": "Our Lady of Guadalupe",
+      "rank": "feast",
+      "color": "white"
+    },
+    "12-14": {
+      "name": "St. John of the Cross, Priest and Doctor of the Church",
+      "rank": "memorial",
+      "color": "white"
+    },
+    "12-25": {
+      "name": "Nativity of the Lord (Christmas)",
+      "rank": "solemnity",
+      "color": "white"
+    },
+    "12-26": {
+      "name": "St. Stephen, First Martyr",
+      "rank": "feast",
+      "color": "red"
+    },
+    "12-27": {
+      "name": "St. John, Apostle and Evangelist",
+      "rank": "feast",
+      "color": "white"
+    },
+    "12-28": {
+      "name": "Holy Innocents, Martyrs",
+      "rank": "feast",
+      "color": "red"
+    },
+    "12-29": {
+      "name": "St. Thomas Becket, Bishop and Martyr",
+      "rank": "optional",
+      "color": "red"
+    },
+    "12-31": {
+      "name": "St. Sylvester I, Pope",
+      "rank": "optional",
+      "color": "white"
+    }
+  },
+  "movable": {
+    "easter": {
+      "name": "Easter Sunday of the Resurrection of the Lord",
+      "rank": "solemnity",
+      "color": "white",
+      "offset": 0
+    },
+    "ash_wednesday": {
+      "name": "Ash Wednesday",
+      "rank": "special",
+      "color": "violet",
+      "offset": -46
+    },
+    "palm_sunday": {
+      "name": "Palm Sunday of the Lord's Passion",
+      "rank": "solemnity",
+      "color": "red",
+      "offset": -7
+    },
+    "holy_thursday": {
+      "name": "Holy Thursday of the Lord's Supper",
+      "rank": "solemnity",
+      "color": "white",
+      "offset": -3
+    },
+    "good_friday": {
+      "name": "Good Friday of the Lord's Passion",
+      "rank": "solemnity",
+      "color": "red",
+      "offset": -2
+    },
+    "holy_saturday": {
+      "name": "Holy Saturday",
+      "rank": "special",
+      "color": "white",
+      "offset": -1
+    },
+    "divine_mercy": {
+      "name": "Second Sunday of Easter (Divine Mercy Sunday)",
+      "rank": "solemnity",
+      "color": "white",
+      "offset": 7
+    },
+    "ascension": {
+      "name": "Ascension of the Lord",
+      "rank": "solemnity",
+      "color": "white",
+      "offset": 39
+    },
+    "pentecost": {
+      "name": "Pentecost Sunday",
+      "rank": "solemnity",
+      "color": "red",
+      "offset": 49
+    },
+    "trinity_sunday": {
+      "name": "Most Holy Trinity",
+      "rank": "solemnity",
+      "color": "white",
+      "offset": 56
+    },
+    "corpus_christi": {
+      "name": "Most Holy Body and Blood of Christ (Corpus Christi)",
+      "rank": "solemnity",
+      "color": "white",
+      "offset": 60
+    },
+    "sacred_heart": {
+      "name": "Most Sacred Heart of Jesus",
+      "rank": "solemnity",
+      "color": "white",
+      "offset": 68
+    },
+    "christ_king": {
+      "name": "Our Lord Jesus Christ, King of the Universe",
+      "rank": "solemnity",
+      "color": "white",
+      "sunday_before_advent": true
+    }
+  },
+  "seasons": {
+    "advent": {
+      "color": "violet",
+      "weeks": 4
+    },
+    "christmas": {
+      "color": "white",
+      "start": "12-25",
+      "end_formula": "baptism_of_lord"
+    },
+    "lent": {
+      "color": "violet",
+      "start_formula": "ash_wednesday",
+      "end_formula": "holy_saturday"
+    },
+    "easter": {
+      "color": "white",
+      "start_formula": "easter",
+      "duration_days": 50
+    },
+    "ordinary": {
+      "color": "green"
+    }
+  }
+}
