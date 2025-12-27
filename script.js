@@ -78,7 +78,14 @@ function toggleTheme() {
 // ===== CONTENT LOADING =====
 async function loadEntries() {
     try {
-        const response = await fetch('/data/entries.json');
+        // Try repository path first (GitHub Pages), fall back to relative path (local)
+        let response = await fetch('/catholic-daily-reflection/data/entries.json');
+        
+        // If 404, try relative path for local development
+        if (!response.ok) {
+            response = await fetch('data/entries.json');
+        }
+        
         if (!response.ok) throw new Error('Failed to load entries');
         entriesData = await response.json();
         return true;
