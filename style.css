@@ -187,21 +187,23 @@ body {
 #content {
     max-width: 720px;
     margin: 0 auto;
-    padding: 8vh 5vw 2rem;
-    min-height: calc(100vh - 60px);
+    padding: 2vh 5vw 1vh;
+    height: calc(100vh - 50px); /* Full height minus bottom nav */
     display: flex;
     flex-direction: column;
     justify-content: center;
+    overflow: hidden;
 }
 
 /* ===== LITURGICAL INFO ===== */
 #liturgical-info {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
 }
 
 #date {
-    font-size: 1rem;
+    font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     opacity: 0.6;
@@ -209,19 +211,20 @@ body {
 }
 
 #liturgical-day {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     opacity: 0.5;
-    margin-top: 0.5rem;
+    margin-top: 0.25rem;
     font-style: italic;
 }
 
 /* ===== COUNTDOWN ===== */
 .countdown {
     text-align: center;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     opacity: 0.5;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     transition: opacity var(--transition);
+    flex-shrink: 0;
 }
 
 .countdown.hidden {
@@ -230,36 +233,44 @@ body {
 
 /* ===== LITURGICAL COLOR ACCENT ===== */
 .liturgical-accent {
-    width: 100%;
-    max-width: 720px;
-    margin: 0 auto 2rem;
-    border: 3px solid var(--liturgical-color);
-    padding: 2rem;
-    transition: border-color var(--transition), opacity var(--transition);
+    width: 60%;
+    max-width: 400px;
+    margin: 0 auto 1.5rem;
+    height: 3px;
+    background: var(--liturgical-color);
+    transition: background-color var(--transition), opacity var(--transition);
+    flex-shrink: 0;
 }
 
 .liturgical-accent.hidden {
-    border-color: transparent;
+    background: transparent;
 }
 
 .content-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    justify-content: center;
 }
 
 /* ===== SECTIONS ===== */
 section {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.25rem;
+    flex-shrink: 1;
+    min-height: 0;
 }
 
 blockquote {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-style: italic;
     text-align: center;
     quotes: """ """ "'" "'";
+    line-height: 1.4;
 }
 
 blockquote::before {
@@ -271,7 +282,7 @@ blockquote::after {
 }
 
 cite {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-style: normal;
     color: var(--cite);
     text-align: center;
@@ -279,17 +290,18 @@ cite {
 }
 
 .saint-work {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     text-align: center;
     opacity: 0.6;
-    margin-top: 0.25rem;
+    margin-top: 0.15rem;
     font-style: italic;
 }
 
 #reflection-question {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     text-align: center;
     font-weight: 500;
+    line-height: 1.4;
 }
 
 /* ===== BOTTOM NAVIGATION ===== */
@@ -486,27 +498,69 @@ cite {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 600px) {
     body {
-        font-size: 16px;
+        font-size: 15px;
     }
     
     blockquote {
-        font-size: 1.3rem;
+        font-size: 1.15rem;
+        line-height: 1.35;
     }
     
     #reflection-question {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        line-height: 1.35;
     }
     
     #content {
-        padding: 5vh 5vw 2rem;
+        padding: 1vh 4vw 1vh;
     }
     
     .content-wrapper {
-        gap: 2rem;
+        gap: 1.5rem;
     }
     
     #side-menu {
         width: 100%;
+    }
+    
+    cite {
+        font-size: 0.75rem;
+    }
+    
+    .saint-work {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-height: 700px) {
+    body {
+        font-size: 15px;
+    }
+    
+    blockquote {
+        font-size: 1.1rem;
+        line-height: 1.3;
+    }
+    
+    #reflection-question {
+        font-size: 1rem;
+        line-height: 1.3;
+    }
+    
+    .content-wrapper {
+        gap: 1.25rem;
+    }
+    
+    #liturgical-info {
+        margin-bottom: 0.75rem;
+    }
+    
+    .countdown {
+        margin-bottom: 0.5rem;
+    }
+    
+    .liturgical-accent {
+        margin-bottom: 1rem;
     }
 }
 
