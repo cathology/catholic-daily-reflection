@@ -4,35 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Daily Catholic reflection with Bible verse, saint quote, and contemplative question">
+    <meta name="theme-color" content="#000000">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="icon-192.png">
+    <link rel="apple-touch-icon" href="icon-192.png">
     <title>Daily Catholic Reflection</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Small unlabeled theme toggle in top-right corner -->
-    <button id="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme"></button>
+    <!-- Hamburger Menu Button -->
+    <button id="menu-toggle" aria-label="Open menu" title="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
+    <!-- Side Menu -->
+    <aside id="side-menu" class="hidden">
+        <div class="menu-content">
+            <button id="menu-close" aria-label="Close menu">×</button>
+            
+            <nav class="menu-nav">
+                <h2>Settings</h2>
+                
+                <div class="menu-section">
+                    <button id="theme-toggle-menu" class="menu-button">
+                        <span>Toggle Light/Dark Mode</span>
+                    </button>
+                </div>
+                
+                <div class="menu-section">
+                    <h3>Display Options</h3>
+                    <label class="toggle-label">
+                        <input type="checkbox" id="toggle-countdown" checked>
+                        <span>Show Feast Countdown</span>
+                    </label>
+                    <label class="toggle-label">
+                        <input type="checkbox" id="toggle-liturgical-color" checked>
+                        <span>Show Liturgical Color</span>
+                    </label>
+                    <label class="toggle-label">
+                        <input type="checkbox" id="toggle-progress-bar" checked>
+                        <span>Show Year Progress</span>
+                    </label>
+                </div>
+                
+                <div class="menu-section">
+                    <h3>Navigation</h3>
+                    <button id="random-button" class="menu-button">
+                        <span>Random Day</span>
+                    </button>
+                    <button id="goto-date-button" class="menu-button">
+                        <span>Go to Date...</span>
+                    </button>
+                </div>
+                
+                <div class="menu-section">
+                    <button id="attribution-button" class="menu-button">
+                        <span>View Sources (i)</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </aside>
+    
+    <!-- Year Progress Bar -->
+    <div id="year-progress-container" class="progress-container">
+        <div id="year-progress-bar" class="progress-bar"></div>
+    </div>
     
     <!-- Main centered content -->
     <main id="content">
-        <time id="date" datetime=""></time>
+        <!-- Liturgical Info -->
+        <div id="liturgical-info">
+            <time id="date" datetime=""></time>
+            <div id="liturgical-day"></div>
+        </div>
         
-        <section id="verse-section" aria-labelledby="verse-heading">
-            <h2 id="verse-heading" class="visually-hidden">Scripture</h2>
-            <blockquote id="verse"></blockquote>
-            <cite id="verse-source"></cite>
-        </section>
+        <!-- Feast Countdown -->
+        <div id="countdown-container" class="countdown">
+            <span id="countdown-text"></span>
+        </div>
         
-        <section id="saint-section" aria-labelledby="saint-heading">
-            <h2 id="saint-heading" class="visually-hidden">Saint's Wisdom</h2>
-            <blockquote id="saint-quote"></blockquote>
-            <cite id="saint-source"></cite>
-        </section>
+        <!-- Liturgical Color Accent -->
+        <div id="liturgical-accent" class="liturgical-accent"></div>
         
-        <section id="reflection-section" aria-labelledby="reflection-heading">
-            <h2 id="reflection-heading" class="visually-hidden">Reflection</h2>
-            <p id="reflection-question"></p>
-        </section>
+        <div class="content-wrapper">
+            <section id="verse-section" aria-labelledby="verse-heading">
+                <h2 id="verse-heading" class="visually-hidden">Scripture</h2>
+                <blockquote id="verse"></blockquote>
+                <cite id="verse-source"></cite>
+            </section>
+            
+            <section id="saint-section" aria-labelledby="saint-heading">
+                <h2 id="saint-heading" class="visually-hidden">Saint's Wisdom</h2>
+                <blockquote id="saint-quote"></blockquote>
+                <cite id="saint-source"></cite>
+                <div id="saint-work" class="saint-work"></div>
+            </section>
+            
+            <section id="reflection-section" aria-labelledby="reflection-heading">
+                <h2 id="reflection-heading" class="visually-hidden">Reflection</h2>
+                <p id="reflection-question"></p>
+            </section>
+        </div>
         
-        <!-- Hidden attribution overlay (press 'i' to show) -->
+        <!-- Hidden attribution overlay -->
         <aside id="attribution-overlay" class="hidden" aria-live="polite">
             <div id="attribution-content">
                 <h3>Sources</h3>
@@ -41,10 +118,29 @@
             </div>
         </aside>
         
+        <!-- Go to Date Modal -->
+        <aside id="goto-modal" class="hidden modal">
+            <div class="modal-content">
+                <h3>Go to Date</h3>
+                <input type="date" id="date-picker" />
+                <div class="modal-buttons">
+                    <button id="goto-cancel" class="secondary">Cancel</button>
+                    <button id="goto-confirm" class="primary">Go</button>
+                </div>
+            </div>
+        </aside>
+        
         <!-- Loading/error states -->
         <div id="loading" class="hidden">Loading reflection...</div>
         <div id="error" class="hidden">Unable to load content. Please try again.</div>
     </main>
+    
+    <!-- Bottom Navigation -->
+    <nav id="bottom-nav">
+        <button id="nav-prev" aria-label="Previous day">‹ Prev</button>
+        <button id="nav-today" aria-label="Go to today">Today</button>
+        <button id="nav-next" aria-label="Next day">Next ›</button>
+    </nav>
     
     <script src="script.js"></script>
 </body>
