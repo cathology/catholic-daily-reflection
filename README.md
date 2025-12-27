@@ -1,280 +1,330 @@
-# catholic-daily-reflection
-Minimal Catholic daily reflection site
-
 # Catholic Daily Reflection
 
-A minimal, single-page Catholic daily reflection site with automated content generation. Features daily Bible verses, saint quotes, and contemplative questions.
+A minimal, installable Catholic daily reflection Progressive Web App (PWA) with automated content. Features daily Bible verses, saint quotes, liturgical information, and contemplative questions.
 
-## Features
+## ✨ Features
 
-- **Ultra-minimal design**: Black & white, system fonts, centered content
-- **Automated content**: GitHub Actions fetch and compile public-domain Catholic sources
-- **Keyboard & touch navigation**: Arrow keys or swipe to navigate dates
-- **Dark mode**: Small unlabeled toggle in top-right corner (persists preference)
-- **Accessible**: Semantic HTML, ARIA labels, keyboard navigation
-- **Privacy-focused**: No analytics, no external CDNs, no tracking
+### Core Experience
+- **Ultra-minimal design**: Black & white aesthetic, system fonts, centered content
+- **Liturgical integration**: Daily liturgical names (feasts, seasons) and color accents
+- **Saint wisdom**: Includes the work/source of each saint quote
+- **Progressive Web App**: Install on any device, works offline
+- **Keyboard & touch navigation**: Arrow keys, swipe gestures, bottom nav
 
-## Quick Start
+### Enhanced Features
+- **Feast countdown**: Days until next major feast (Easter/Christmas)
+- **Year progress bar**: Subtle indicator at top of page
+- **Liturgical color accents**: Visual border matching the liturgical season
+- **Random exploration**: Discover any day's reflection
+- **Date navigation**: Jump to any specific date
+- **Customizable display**: Toggle features via hamburger menu
+- **Dark/light mode**: Persistent theme preference
 
-### 1. Deploy to GitHub Pages
+### Privacy & Performance
+- **No analytics or tracking**
+- **No external CDNs**
+- **Fully static at runtime**
+- **Offline-capable**
 
-1. **Fork or clone this repository**
-   ```bash
-   git clone https://github.com/yourusername/catholic-reflection.git
-   cd catholic-reflection
-   ```
+## 🚀 Quick Start
 
-2. **Enable GitHub Pages**
-   - Go to repository Settings → Pages
-   - Source: Deploy from a branch
-   - Branch: `main` / `root`
-   - Save
+### 1. Enable GitHub Pages
 
-3. **Run the build workflow**
-   - Go to Actions tab
-   - Select "Build Daily Reflections"
-   - Click "Run workflow"
-   - Wait for completion (~2-5 minutes)
+1. Go to **Settings** → **Pages**
+2. Source: **Deploy from a branch**
+3. Branch: **main** / **/ (root)**
+4. Click **Save**
 
-4. **Access your site**
-   - Visit `https://yourusername.github.io/catholic-reflection`
+### 2. Generate PWA Icons
 
-### 2. Configuration (Optional)
+1. Download `icon-generator.html` from this repo
+2. Open it in a browser
+3. Click both download buttons to get `icon-192.png` and `icon-512.png`
+4. Upload both icons to the root of your repository
+5. Commit and push
 
-Copy `build-config.example.json` to `build-config.json` to customize:
+### 3. Data Files
+
+Your site uses **two separate data files**:
+
+#### A. `data/entries.json` - Your Daily Content
+
+This contains verses, saint quotes, and reflections. **You manage this file manually.**
 
 ```json
 {
-  "year": 2025,
-  "dateRange": {
-    "start": "01-01",
-    "end": "12-31"
-  },
-  "sources": {
-    "bible": "douay-rheims",
-    "saints": ["newadvent", "ccel"]
-  },
-  "generateQuestions": true
+  "01-01": {
+    "verse": {
+      "text": "Scripture text...",
+      "source": "Book Chapter:Verse, Translation"
+    },
+    "saint": {
+      "text": "Saint quote...",
+      "source": "St. Name",
+      "work": "Title of Work (optional)"
+    },
+    "question": "Reflection question...",
+    "questionSource": "Attribution (optional)"
+  }
 }
 ```
 
-**Note**: Default configuration uses only public-domain sources. See Copyright section below.
+**Note**: The `saint.work` field is optional. If present, it will be displayed automatically.
 
-### 3. Automatic Updates (Optional)
+#### B. `data/liturgical-calendar.json` - Liturgical Information
 
-To refresh content daily, uncomment the schedule in `.github/workflows/build.yml`:
+This file is **provided in the repository** and contains:
+- Universal Roman Calendar feasts and solemnities
+- Liturgical colors following proper Catholic rubrics
+- Movable feast calculations (Easter, Pentecost, etc.)
 
-```yaml
-schedule:
-  - cron: '0 3 * * *'  # Runs daily at 3 AM UTC
+**You don't need to edit this file** unless you want to add regional feasts.
+
+The site automatically:
+- Calculates Easter and all related movable feasts
+- Determines liturgical seasons (Advent, Lent, Easter, Christmas, Ordinary Time)
+- Applies correct liturgical colors following hierarchical rules
+- Shows feast names for solemnities, feasts, and memorials
+
+### 4. Access Your Site
+
+Visit: `https://yourusername.github.io/catholic-daily-reflection`
+
+### 5. Install as PWA
+
+- **Desktop**: Look for install icon in browser address bar
+- **Mobile**: Use browser's "Add to Home Screen" option
+- **Works offline** after first visit!
+
+## 📱 Usage
+
+### Navigation
+- **Arrow keys**: ← Previous day | → Next day
+- **Touch**: Swipe left/right to navigate days
+- **Bottom nav**: Prev | Today | Next buttons
+- **URL**: `?d=2025-01-01` for specific dates
+
+### Hamburger Menu (Top-Left)
+- **Toggle Light/Dark Mode**: Switch themes
+- **Show/Hide Features**: 
+  - Feast countdown
+  - Liturgical color accents
+  - Year progress bar
+- **Random Day**: Explore any reflection
+- **Go to Date**: Pick a specific date
+- **View Sources**: Show attribution (also press `i`)
+
+### Keyboard Shortcuts
+- **← →** : Navigate days
+- **i** : Show/hide sources
+- **Esc** : Close modals/menus
+
+## 📁 File Structure
+
 ```
-
-## File Structure
-
-```
-catholic-reflection/
+catholic-daily-reflection/
 ├── index.html              # Main page
-├── style.css               # Minimal styling
-├── script.js               # Site logic (navigation, theme)
+├── style.css               # Styling
+├── script.js               # Logic & PWA functionality
+├── manifest.json           # PWA manifest
+├── sw.js                   # Service worker for offline
+├── icon-192.png            # PWA icon (192x192)
+├── icon-512.png            # PWA icon (512x512)
+├── icon-generator.html     # Tool to create icons
 ├── data/
-│   └── entries.json        # Generated content (auto-updated by Actions)
-├── build-scripts/
-│   └── fetch-data.js       # Content fetcher (runs in GitHub Actions)
-├── .github/
-│   └── workflows/
-│       └── build.yml       # GitHub Actions workflow
-├── build-config.example.json
+│   ├── entries.json        # Your content (you manage this)
+│   └── liturgical-calendar.json  # Liturgical info (provided)
+├── .nojekyll               # Tells GitHub Pages to serve all files
+├── build-scripts/          # (Optional) Automated content fetching
 └── README.md
 ```
 
-## Usage
+## 🎨 Customization
 
-### Navigation
-- **Arrow keys**: Left/right to change date
-- **Touch**: Swipe left/right
-- **URL**: `?d=2025-01-01` or `?d=01-01`
+### Display Settings
 
-### Attribution
-- Press `i` to view sources for current day's content
-- Press `i` or `Esc` to close
+All settings persist in `localStorage`:
 
-### Theme Toggle
-- Click small square in top-right corner
-- Preference saved to `localStorage`
-- Respects `prefers-color-scheme`
+- **Theme**: Light or dark mode
+- **Feast Countdown**: Show days until Easter/Christmas
+- **Liturgical Colors**: Border accent matching liturgical season
+- **Year Progress**: Thin bar showing progress through the year
 
-## Content Sources
+Access via hamburger menu (top-left).
 
-### Default (Public Domain Only)
+### Content Structure
 
-The build script automatically fetches from:
+Each date entry in `data/entries.json` supports:
 
-1. **Bible**: Douay-Rheims translation (drbo.org)
-   - Public domain Catholic Bible
-   - Pre-Vatican II approved translation
+| Field | Required | Description |
+|-------|----------|-------------|
+| `verse.text` | Yes | Scripture text |
+| `verse.source` | Yes | Book Chapter:Verse, Translation |
+| `saint.text` | Yes | Quote from saint |
+| `saint.source` | Yes | Saint's name |
+| `saint.work` | No | Title of work quoted from (auto-displayed if present) |
+| `question` | Yes | Reflection question |
+| `questionSource` | No | Attribution for question |
 
-2. **Saint Quotes**: 
-   - New Advent (newadvent.org) - Church Fathers
-   - Christian Classics Ethereal Library (ccel.org)
-   - Project Gutenberg - classic spiritual works
+**Note**: You do NOT need to add `liturgicalDay` or `liturgicalColor` fields. These are automatically determined from the separate `liturgical-calendar.json` file.
 
-3. **Reflection Questions**:
-   - Generated locally using templates
-   - Based on verse and saint quote content
+### Liturgical Calendar
 
-### Custom/Licensed Content
+The `data/liturgical-calendar.json` file includes:
 
-**⚠️ IMPORTANT COPYRIGHT NOTICE**
+**Fixed Feasts**: All major feasts on fixed dates
+- Solemnities: Christmas, Immaculate Conception, etc.
+- Feasts: Sts. Peter & Paul, Transfiguration, etc.
+- Memorials: St. Augustine, St. Francis, etc.
 
-If you want to use modern Bible translations (NABRE, RSV-CE, etc.) or contemporary devotional content:
+**Movable Feasts**: Automatically calculated each year
+- Easter Sunday (via Computus algorithm)
+- Ash Wednesday, Holy Week, Pentecost
+- Corpus Christi, Sacred Heart, Christ the King
+- All dates relative to Easter
 
-1. **You MUST obtain proper licensing** from the copyright holder
-2. **You are legally responsible** for compliance
-3. **Options**:
-   - Upload pre-licensed content to `data/custom-bible.json`
-   - Add license tokens to `build-config.json`
-   - Contact publishers for permissions
+**Liturgical Seasons**: Colors applied automatically
+- **Advent**: Violet (4 weeks before Christmas)
+  - Rose on Gaudete Sunday (3rd Sunday)
+- **Christmas**: White (Dec 25 - Baptism of the Lord)
+- **Lent**: Violet (Ash Wed - Holy Saturday)
+  - Rose on Laetare Sunday (4th Sunday)
+- **Easter**: White (Easter - Pentecost, 50 days)
+- **Ordinary Time**: Green (default, all other times)
 
-**Modern translations are copyrighted**. The build script will NOT automatically scrape copyrighted sources without explicit authorization.
+**Liturgical Color Rules** (automatically applied):
+1. Highest-ranking observance determines the color
+2. Feasts/solemnities override seasonal colors
+3. Green is used when no special observance applies
+4. Rose appears only on Gaudete & Laetare Sundays
+5. Red for martyrs, Passion events, and Pentecost
+6. Violet for Black (All Souls) when traditional usage applies
 
-#### Adding Custom Bible Translation
+## 🔧 Technical Details
 
-1. Obtain license for translation
-2. Create `data/custom-bible.json`:
-   ```json
-   {
-     "Genesis-1-1-2": {
-       "text": "Your licensed translation text...",
-       "source": "Translation Name"
-     }
-   }
-   ```
-3. Update `build-config.json`:
-   ```json
-   {
-     "sources": {
-       "customBiblePath": "data/custom-bible.json"
-     }
-   }
-   ```
+### PWA Features
 
-## Copyright & Legal
-
-### Site Owner Responsibilities
-
-**You are responsible for**:
-- Ensuring all content is properly licensed
-- Obtaining permissions for copyrighted material
-- Compliance with publisher terms of service
-- Attribution requirements
-
-### Default Content Licenses
-
-- **Douay-Rheims Bible**: Public domain
-- **Church Fathers (New Advent)**: Public domain
-- **CCEL texts**: Public domain or Creative Commons
-- **Generated questions**: Original content
-
-### Respecting Copyright
-
-This project is designed to respect intellectual property:
-- Build script uses only public domain sources by default
-- Requires explicit configuration for copyrighted content
-- No automated scraping of modern translations
-- Clear documentation of licensing requirements
-
-**When in doubt, use public domain sources only.**
-
-## Technical Details
-
-### Build Process
-
-1. GitHub Actions triggers `fetch-data.js`
-2. Script fetches content from configured sources
-3. Content normalized and compiled to `data/entries.json`
-4. JSON committed back to repository
-5. GitHub Pages serves updated content
-
-### Runtime Performance
-
-- **No external requests**: All content pre-fetched
-- **Static JSON**: Fast loading, no database
-- **Minimal JS**: ~3KB (uncompressed)
-- **No dependencies**: Pure vanilla JavaScript
+- **Installable**: Add to home screen on any device
+- **Offline-first**: Service worker caches all assets
+- **Fast loading**: All content pre-loaded
+- **App-like experience**: Standalone display mode
 
 ### Browser Support
 
 - Modern browsers (2024+)
-- ES6+ JavaScript required
-- CSS Grid and Custom Properties
-- `localStorage` for theme persistence
+- ES6+ JavaScript
+- CSS Custom Properties
+- Service Workers
+- LocalStorage
 
-## Troubleshooting
+### Performance
 
-### Build fails
-- Check Actions tab for error logs
-- Verify Node.js version (20+ required)
-- Check network connectivity in Actions runner
+- **Initial load**: ~50KB (uncompressed)
+- **No external requests** at runtime
+- **Instant navigation** after first load
+- **Offline-capable** after initial cache
 
-### Content not updating
-- Manually trigger workflow from Actions tab
-- Check if `data/entries.json` exists
-- Verify GitHub Pages is enabled
+## 📝 Content Guidelines
 
-### Missing dates
-- Check `build-config.json` date range
-- Some dates may not have lectionary mappings yet
-- Review build logs for fetch failures
+### Your Entries File (`data/entries.json`)
 
-## Development
+You manage this file to add daily content. The liturgical information is handled separately.
 
-### Local Testing
-
-```bash
-# Install dependencies
-cd build-scripts
-npm install cheerio node-fetch
-
-# Run build script
-node fetch-data.js
-
-# Serve site locally
-python -m http.server 8000
-# or
-npx serve
+**Minimum required fields**:
+```json
+{
+  "12-25": {
+    "verse": {
+      "text": "And the Word was made flesh...",
+      "source": "John 1:14, Douay-Rheims"
+    },
+    "saint": {
+      "text": "O Christian, remember your dignity...",
+      "source": "St. Leo the Great",
+      "work": "Sermon on the Nativity"
+    },
+    "question": "How does Christ dwelling among us transform you?"
+  }
+}
 ```
 
-### Extending Sources
+The `saint.work` field is optional but will be displayed automatically if you include it.
 
-Edit `build-scripts/fetch-data.js`:
+## ⚠️ Copyright & Legal
 
-1. Add new fetch functions
-2. Update `buildEntries()` logic
-3. Add error handling
-4. Test with manual workflow run
+**Your responsibility as site owner:**
+- Ensure all content is properly licensed
+- Use public domain sources when possible
+- Obtain permissions for copyrighted material
+- Provide accurate attributions
 
-## Contributing
+**Default public domain sources:**
+- Douay-Rheims Bible (public domain)
+- Church Fathers texts (public domain)
+- Classic saint writings (public domain)
 
-Contributions welcome! Please ensure:
-- Only public domain sources in default configuration
-- Clear copyright documentation
-- Accessible, minimal design maintained
-- No external dependencies added
+For modern translations or recent saint quotes, **you must obtain proper licensing**.
 
-## License
+## 🐛 Troubleshooting
 
-**Code**: MIT License (see LICENSE file)
+### Site not loading content
+1. Check that `data/entries.json` exists and is valid JSON
+2. Verify GitHub Pages is enabled
+3. Wait 2-3 minutes after pushing changes
+4. Try hard refresh (Ctrl+Shift+R)
 
-**Content**: Varies by source (see Content Sources section)
+### PWA not installing
+1. Ensure both `icon-192.png` and `icon-512.png` exist in root
+2. Check `manifest.json` paths are correct
+3. Visit site via HTTPS (GitHub Pages does this automatically)
+4. Try in Chrome/Edge (best PWA support)
 
-**Your responsibility**: Ensure all content you deploy is properly licensed for your use case.
+### Icons not showing
+1. Generate icons using `icon-generator.html`
+2. Upload to repository root
+3. Commit and push
+4. Clear cache and reload
 
-## Support
+### Liturgical colors not appearing
+1. Check `liturgicalColor` field in your JSON
+2. Toggle "Show Liturgical Color" in menu
+3. Verify color name spelling (lowercase)
 
-- **Issues**: GitHub Issues
-- **Questions**: Discussions tab
-- **Catholic content questions**: Consult your diocese or parish
+### Service worker errors
+1. Check browser console for errors
+2. Unregister old service workers (DevTools → Application → Service Workers)
+3. Clear site data and reload
+
+## 🤝 Contributing
+
+Contributions welcome! Please:
+- Maintain minimal design aesthetic
+- Test PWA functionality
+- Document new features
+- Follow existing code style
+- Respect copyright in content
+
+## 📄 License
+
+**Code**: MIT License
+
+**Content**: Varies by source (see Copyright section)
+
+**Your responsibility**: Ensure all deployed content is properly licensed.
+
+## 🔗 Resources
+
+- [Catholic Liturgical Calendar](https://www.usccb.org/prayer-and-worship/liturgical-year-and-calendar)
+- [USCCB Daily Readings](https://bible.usccb.org/)
+- [New Advent - Church Fathers](https://www.newadvent.org/fathers/)
+- [Vatican Website](https://www.vatican.va/)
+
+## 📞 Support
+
+- **Issues**: Use GitHub Issues
+- **Questions**: Start a Discussion
+- **Liturgical questions**: Consult your diocese or parish
 
 ---
 
-*This is an open-source project. Site owners are solely responsible for copyright compliance and proper licensing of all deployed content.*
+*An open-source Catholic reflection app. Site owners are solely responsible for content licensing and copyright compliance.*
