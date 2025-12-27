@@ -1,0 +1,39 @@
+{
+  "year": 2025,
+  "dateRange": {
+    "start": "01-01",
+    "end": "12-31",
+    "_comment": "Use MM-DD format for start and end dates"
+  },
+  "sources": {
+    "bible": "douay-rheims",
+    "_bibleOptions": [
+      "douay-rheims (public domain, automatic)",
+      "custom (requires customBiblePath)"
+    ],
+    "customBiblePath": null,
+    "_customBibleComment": "Path to JSON file with custom translations. Format: { 'Book-Chapter-Verses': { text, source } }",
+    "saints": [
+      "newadvent",
+      "ccel"
+    ],
+    "_saintsComment": "Public domain sources: newadvent (New Advent), ccel (Christian Classics Ethereal Library)",
+    "licenseTokens": {
+      "_comment": "If you have licenses for modern translations, add tokens here",
+      "nabre": null,
+      "magnificat": null,
+      "loyolaPress": null
+    }
+  },
+  "generateQuestions": true,
+  "_generateQuestionsComment": "Set to false if you want to manually provide reflection questions",
+  "notes": [
+    "Copy this file to build-config.json in the root directory",
+    "All automatic sources use public domain content only",
+    "For copyrighted modern translations, you must:",
+    "  1. Obtain proper licensing",
+    "  2. Add license token to licenseTokens",
+    "  3. Or manually upload content to data/custom-bible.json",
+    "Site owner is responsible for all copyright compliance"
+  ]
+}
